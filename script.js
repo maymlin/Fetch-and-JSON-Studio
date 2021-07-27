@@ -5,8 +5,8 @@ window.addEventListener("load", function() {
         response.json()
         .then(function(jsonString) {
             // console.log(jsonString);
-
-            // 26.6.3 Bonus Missions
+            let contentSpace = document.getElementById("container");
+            // 26.6.3 Bonus Missions #1 and 2
             let hoursArray = [];
             jsonString.forEach(function(astronaut) {
                 hoursArray.push(astronaut.hoursInSpace);
@@ -32,7 +32,12 @@ window.addEventListener("load", function() {
             }
             */
 
-            document.getElementById("container").innerHTML = astronautInfo;
+            // 26.6.3 Bonus Missions #3
+            let newElement = document.createElement("h2");
+            newElement.innerHTML = `Astronaunt count: ${jsonString.length}`;
+            document.querySelector("body").insertBefore(newElement, contentSpace);
+
+            contentSpace.innerHTML = astronautInfo;
         });
     });
 });
